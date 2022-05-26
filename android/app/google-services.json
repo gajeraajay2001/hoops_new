@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "691492091663",
+    "project_id": "hoops-basketball",
+    "storage_bucket": "hoops-basketball.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:691492091663:android:b7ede6b7d3a27e8dfd307a",
+        "android_client_info": {
+          "package_name": "com.hoops.hoops_new"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "691492091663-usv5t7lk1qok25op2lk3kvq87j4ia03q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlxDhYRSqCVeuj27uBNIvtOl5Mjv38Uyg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "691492091663-usv5t7lk1qok25op2lk3kvq87j4ia03q.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "691492091663-rpfnkilhaprargmulobvsh53re6dloin.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.hoopsball.hoops"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
