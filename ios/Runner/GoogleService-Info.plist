@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>691492091663-rpfnkilhaprargmulobvsh53re6dloin.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.691492091663-rpfnkilhaprargmulobvsh53re6dloin</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>691492091663-29jndnepdrte958d5om2lkhqg06nerha.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAQr5CDl_6o4vyFgNT1PoDPoRR3ejO9ZrM</string>
+	<key>GCM_SENDER_ID</key>
+	<string>691492091663</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.hoopsball.hoops</string>
+	<key>PROJECT_ID</key>
+	<string>hoops-basketball</string>
+	<key>STORAGE_BUCKET</key>
+	<string>hoops-basketball.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:691492091663:ios:b642ea8f34119c25fd307a</string>
+</dict>
+</plist>

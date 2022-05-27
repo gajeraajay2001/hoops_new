@@ -209,7 +209,7 @@ class LoginScreenView extends GetWidget<LoginScreenController> {
         .verifyPhoneNumber(
       phoneNumber: '+91${controller.mobileNumberController.text.trim()}',
       verificationCompleted: (PhoneAuthCredential credential) async {
-        await auth.signInWithCredential(credential);
+        // await auth.signInWithCredential(credential);
       },
       verificationFailed: (FirebaseAuthException e) {
         if (e.code == 'invalid-phone-number') {
@@ -229,9 +229,12 @@ class LoginScreenView extends GetWidget<LoginScreenController> {
         Get.toNamed(Routes.OTP_SCREEN,
             arguments: {"verificationId": verificationId});
       },
-      codeAutoRetrievalTimeout: (String verificationId) {},
+      codeAutoRetrievalTimeout: (String verificationId) {
+        print(verificationId);
+      },
     )
         .catchError((error) {
+          print(error);
       app.resolve<CustomDialogs>().hideCircularDialog(context);
     });
   }
