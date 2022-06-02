@@ -234,7 +234,7 @@ class LoginScreenView extends GetWidget<LoginScreenController> {
       },
     )
         .catchError((error) {
-          print(error);
+      print(error);
       app.resolve<CustomDialogs>().hideCircularDialog(context);
     });
   }

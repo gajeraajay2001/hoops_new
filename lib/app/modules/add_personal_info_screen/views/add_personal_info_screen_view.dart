@@ -11,7 +11,7 @@ import 'package:hoops_new_26_05/constant/constants.dart';
 import '../controllers/add_personal_info_screen_controller.dart';
 
 class AddPersonalInfoScreenView
-    extends GetView<AddPersonalInfoScreenController> {
+    extends GetWidget<AddPersonalInfoScreenController> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -46,14 +46,20 @@ class AddPersonalInfoScreenView
                   alignment: Alignment.centerLeft,
                   child: SvgPicture.asset("assets/basketball.svg")),
               SizedBox(height: getSize(35, context)),
-              appTextField(hintText: "Your Name*"),
+              appTextField(
+                  hintText: "Your Name*",
+                  controller: controller.nameController),
               SizedBox(height: getSize(10, context)),
-              appTextField(hintText: "Date Of Birth*"),
+              appTextField(
+                  hintText: "Date Of Birth*",
+                  controller: controller.dobController),
               SizedBox(height: getSize(10, context)),
-              appTextField(hintText: "Height*"),
+              appTextField(
+                  hintText: "Height*", controller: controller.heightController),
               SizedBox(height: getSize(10, context)),
               appTextField(
                 hintText: "Search Your City*",
+                controller: controller.cityController,
                 suffixIcon: Icon(
                   Icons.gps_fixed,
                   size: getSize(35, context),
@@ -70,6 +76,7 @@ class AddPersonalInfoScreenView
               SizedBox(height: getSize(5, context)),
               appTextField(
                 hintText: "Playing Style (Primary)*",
+                controller: controller.playingStyle1Controller,
                 suffixIcon: Icon(
                   Icons.expand_more,
                   size: getSize(40, context),
@@ -79,6 +86,7 @@ class AddPersonalInfoScreenView
               SizedBox(height: getSize(10, context)),
               appTextField(
                 hintText: "Playing Style (Secondary)*",
+                controller: controller.playingStyle2Controller,
                 suffixIcon: Icon(
                   Icons.expand_more,
                   size: getSize(40, context),
@@ -88,21 +96,29 @@ class AddPersonalInfoScreenView
               SizedBox(height: getSize(10, context)),
               appTextField(
                 hintText: "Playing Style (Secondary)",
+                controller: controller.playingStyle3Controller,
               ),
               SizedBox(height: getSize(10, context)),
               appTextField(
                 hintText: "Favourite Basketball Team",
+                controller: controller.favTeamController,
               ),
               SizedBox(height: getSize(10, context)),
               appTextField(
                 hintText: "Favourite Basketball Player",
+                controller: controller.favPlayerController,
               ),
               SizedBox(height: getSize(10, context)),
-              appTextField(hintText: "About Me", maxLine: 4),
+              appTextField(
+                hintText: "About Me",
+                maxLine: 4,
+                controller: controller.aboutMeController,
+              ),
               SizedBox(height: getSize(50, context)),
               InkWell(
                   onTap: () {
-                    Get.toNamed(Routes.ALLOW_LOCATION_SCREEN);
+                    controller.addProfileToFirebase(context: context);
+                    // Get.toNamed(Routes.ALLOW_LOCATION_SCREEN);
                   },
                   child: submitButton(context: context, title: "Done")),
               SizedBox(height: getSize(30, context)),

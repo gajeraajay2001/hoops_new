@@ -1,15 +1,15 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
 import 'package:get/get.dart';
 import 'package:hoops_new_26_05/Utilities/math_utils.dart';
-import 'package:hoops_new_26_05/app/routes/app_pages.dart';
+import 'package:hoops_new_26_05/app/model/profile_model.dart';
 import 'package:hoops_new_26_05/constant/constants.dart';
 import 'package:hoops_new_26_05/constant/sizeConstant.dart';
 import 'package:hoops_new_26_05/main.dart';
 import 'package:pinput/pin_put/pin_put.dart';
-
+import '../../../routes/app_pages.dart';
 import '../controllers/otp_screen_controller.dart';
 
 class OtpScreenView extends GetWidget<OtpScreenController> {
@@ -136,7 +136,23 @@ class OtpScreenView extends GetWidget<OtpScreenController> {
                             print(token);
                             if (!isNullEmptyOrFalse(token)) {
                               box.write(ArgumentConstant.token, token);
-                              Get.offAllNamed(Routes.HOME_SCREEN);
+                              box.write(ArgumentConstant.userId, user.uid);
+                              QuerySnapshot querySnapshot = await controller
+                                  .firebaseFirestore
+                                  .collection(box.read(ArgumentConstant.userId))
+                                  .get();
+                              List allData = querySnapshot.docs
+                                  .map((doc) => doc.data())
+                                  .toList();
+
+                              if (isNullEmptyOrFalse(allData)) {
+                                Get.offAllNamed(Routes.ADD_PROFILE_SCREEN);
+                              } else {
+                                ProfileModel profileModel =
+                                    ProfileModel.fromMap(data: allData[0]);
+
+                                Get.offAllNamed(Routes.ALLOW_LOCATION_SCREEN);
+                              }
                             }
                             print(value);
                           }).catchError((e) {

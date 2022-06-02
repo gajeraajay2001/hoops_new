@@ -7,7 +7,10 @@ class ColorConstant {
 
 class ArgumentConstant {
   static String token = "token";
+  static String userId = "userId";
   static String mobileNumber = "mobileNumber";
+  static String userName = "userName";
+  static String base64Image = "base64Image";
 }
 
 Rx<PageController> pageController = PageController().obs;
