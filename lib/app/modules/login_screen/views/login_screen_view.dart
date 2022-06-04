@@ -225,7 +225,7 @@ class LoginScreenView extends GetWidget<LoginScreenController> {
       codeSent: (String verificationId, int? forceResendingToken) async {
         app.resolve<CustomDialogs>().hideCircularDialog(context);
         box.write(ArgumentConstant.mobileNumber,
-            '+91${controller.mobileNumberController.text.trim()}');
+            '+1${controller.mobileNumberController.text.trim()}');
         Get.toNamed(Routes.OTP_SCREEN,
             arguments: {"verificationId": verificationId});
       },
@@ -234,7 +234,7 @@ class LoginScreenView extends GetWidget<LoginScreenController> {
       },
     )
         .catchError((error) {
-          print(error);
+      print(error);
       app.resolve<CustomDialogs>().hideCircularDialog(context);
     });
   }
