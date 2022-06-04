@@ -150,7 +150,9 @@ class OtpScreenView extends GetWidget<OtpScreenController> {
                               } else {
                                 ProfileModel profileModel =
                                     ProfileModel.fromMap(data: allData[0]);
-
+                                box.write(ArgumentConstant.userName,
+                                    profileModel.name); box.write(ArgumentConstant.getBase64Image,
+                                    profileModel.image);
                                 Get.offAllNamed(Routes.ALLOW_LOCATION_SCREEN);
                               }
                             }

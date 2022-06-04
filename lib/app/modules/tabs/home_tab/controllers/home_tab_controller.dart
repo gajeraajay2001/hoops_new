@@ -1,11 +1,17 @@
 import 'package:get/get.dart';
+import 'package:hoops_new_26_05/constant/constants.dart';
+import 'package:hoops_new_26_05/constant/sizeConstant.dart';
+
+import '../../../../../main.dart';
 
 class HomeTabController extends GetxController {
-  //TODO: Implement HomeTabController
+  RxString imageFromFirebase = "".obs;
 
-  final count = 0.obs;
   @override
   void onInit() {
+    if (!isNullEmptyOrFalse(box.read(ArgumentConstant.getBase64Image))) {
+      imageFromFirebase.value = box.read(ArgumentConstant.getBase64Image);
+    }
     super.onInit();
   }
 
@@ -16,5 +22,4 @@ class HomeTabController extends GetxController {
 
   @override
   void onClose() {}
-  void increment() => count.value++;
 }

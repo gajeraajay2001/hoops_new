@@ -47,12 +47,27 @@ class AddProfileScreenView extends GetWidget<AddProfileScreenController> {
                       final XFile? image = await controller.imagePicker
                           .pickImage(source: ImageSource.gallery);
                       if (!isNullEmptyOrFalse(image)) {
-                        controller.isImageSelected.value = true;
                         File file = File(image!.path);
-                        controller.selectedImageFile = file.obs;
                         List<int> imageBytes = file.readAsBytesSync();
-                        controller.base64Image.value = base64Encode(imageBytes);
-                        controller.selectedImageFile!.refresh();
+                        final bytes = file.readAsBytesSync().lengthInBytes;
+                        final kb = bytes / 1024;
+                        final mb = kb / 1024;
+                        print("MB : = == = = =  $mb");
+                        if (mb < 1) {
+                          controller.selectedImageFile = file.obs;
+                          controller.isImageSelected.value = true;
+                          controller.base64Image.value =
+                              base64Encode(imageBytes);
+
+                          controller.selectedImageFile!.refresh();
+                        } else {
+                          FocusScope.of(context).unfocus();
+                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                            content: Text(
+                                "Please select image size less then 1 Mb."),
+                            duration: Duration(milliseconds: 500),
+                          ));
+                        }
                       }
                     },
                     child: SizedBox(

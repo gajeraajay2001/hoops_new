@@ -62,7 +62,10 @@ class AddPersonalInfoScreenController extends GetxController {
       List allData = querySnapshot.docs.map((doc) => doc.data()).toList();
       ProfileModel profileModel = ProfileModel.fromMap(data: allData[0]);
       print(profileModel.image);
-      // Get.offAllNamed(Routes.ALLOW_LOCATION_SCREEN);
+      box.write(ArgumentConstant.userName, profileModel.name);
+      box.write(ArgumentConstant.getBase64Image, profileModel.image);
+      print("Data Added ============>");
+      Get.offAllNamed(Routes.ALLOW_LOCATION_SCREEN);
     }).catchError((error) {
       app.resolve<CustomDialogs>().hideCircularDialog(context);
       print("Error := $error");
