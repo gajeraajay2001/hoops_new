@@ -1,9 +1,16 @@
+import 'dart:io';
+import 'dart:typed_data';
+
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 
 class AddProfileScreenController extends GetxController {
-  //TODO: Implement AddProfileScreenController
-
-  final count = 0.obs;
+  TextEditingController nameController = TextEditingController();
+  Rx<File>? selectedImageFile;
+  RxBool isImageSelected = false.obs;
+  final ImagePicker imagePicker = ImagePicker();
+  RxString base64Image = "".obs;
   @override
   void onInit() {
     super.onInit();
@@ -16,5 +23,4 @@ class AddProfileScreenController extends GetxController {
 
   @override
   void onClose() {}
-  void increment() => count.value++;
 }

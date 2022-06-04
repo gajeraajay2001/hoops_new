@@ -1,7 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class OtpScreenController extends GetxController {
+  FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
   final TextEditingController pinPutController = TextEditingController();
   final FocusNode pinPutFocusNode = FocusNode();
   String verificationId = "";
